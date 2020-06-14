@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WatchShop.Models.Item>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="main-col">
+    <div class="container">
+        <div class="row">
+            <div class="product-grid-view">
+                <div class="col-md-12">
+                    <div class="std">
+                        <div class="home-tabs wow bounceInUp animated">
+                            <div class="producttabs">
+                                <div id="magik_producttabs1" class="magik-producttabs">
+                                    <!--<h3></h3>-->
+                                    <div class="magik-pdt-container">
+                                        <!--Begin Tab Nav -->
+                                        <div class="magik-pdt-nav">
+                                            <ul class="pdt-nav">
+                                                <li class="item-nav tab-loaded tab-nav-actived" data-type="order" data-catid="" data-orderby="best_sales" data-href="pdt_best_sales"><span class="title-navi">Best Seller</span></li>
+                          
+                                            </ul>
+                                        </div>
+                                        <div class="magik-pdt-content wide-5">
+                                            <div class="pdt-content is-loaded pdt_best_sales tab-content-actived" id="demo">
+                                                <ul class="pdt-list products-grid-home zoomOut play">
+                                                    @foreach (var item in Model)
+                                                    {
+                                                        <li class="item item-animate wide-first">
+                                                            <div class="item-inner">
+                                                                <div class="item-img">
+                                                                    <div class="item-img-info">
+                                                                        <a href="/Item/Detail/@item.id" title="Sample Product" class="product-image"><img src="~/assets/img/gallery/@Html.DisplayFor(modelItem => item.image)" alt="Sample Product" height="267" width="267"></a>
+                                                                        <div class="new-label new-top-left">New</div>
+                                                                        <div class="item-box-hover">
+                                                                            <div class="box-inner">
+                                                                                <div class="actions">
+                                                                                    <div class="add_cart">
+                                                                                        @*<button class="button btn-cart" type="button">*@<span><a href="@Url.Action("AddToCart", "Cart", new { @id = item.id, @Url = Request.Url.ToString() })">Add to Cart</a></span>@*</button>*@
+                                                                                    </div>
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="item-info">
+                                                                    <div class="info-inner">
+                                                                        <div class="item-title"><a href="/Item/Detail/@item.id">@Html.DisplayFor(modelItem => item.name)</a> </div>
+                                                                        <div class="item-content">
+                                                                            <div class="rating">
+                                                                                <div class="ratings">
+                                                                                    <div class="rating-box">
+                                                                                        <div class="rating" style="width:80%"></div>
+                                                                                    </div>
+                                                                                    <p class="rating-links"><a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Review</a> </p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="item-price">
+                                                                                <div class="price-box"><span class="regular-price"><span class="price">@Html.DisplayFor(modelItem => item.price) VND</span> </span> </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    }
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+       
+
+
+
+<!-- End Nav Card -->
